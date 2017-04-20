@@ -1,0 +1,22 @@
+//create grid
+have_draw = false;
+globalvar current_value_of_mystery_box, mistery_box_instance, ds_grid_value_list, gold_count;
+gold_count = 0;
+
+randomize();
+my_grid = ds_grid_create(6, 6);
+
+for(x_position = 0; x_position < 6; x_position++){
+    for(y_position = 0; y_position < 6; y_position++){
+        ds_grid_add(my_grid, x_position, y_position, choose("Bomb", "Gold"));
+    }
+}
+
+for(x_position = 0; x_position < 6; x_position++){
+    for(y_position = 0; y_position < 6; y_position++){
+        if(ds_grid_get(my_grid, x_position, y_position) == "Gold"){
+             gold_count++;
+             ds_grid_set(my_grid, x_position, y_position, string(check_how_many_bomb_around(my_grid, x_position, y_position)));
+             }
+}
+}

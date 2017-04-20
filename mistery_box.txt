@@ -1,0 +1,3 @@
+image_speed = 0;
+globalvar number_mistery_box_hold, you_are_lose;
+you_are_lose = false;
